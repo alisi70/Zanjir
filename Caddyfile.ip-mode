@@ -34,6 +34,13 @@
         reverse_proxy dendrite:8008
     }
 
+    # Mobile guide - serve our custom page directly
+    handle /mobile_guide* {
+        root * /srv/element/mobile_guide
+        rewrite * /index.html
+        file_server
+    }
+
     # Element Web - serve static files
     handle {
         root * /srv/element
